@@ -1,28 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int N, C, S;
-    int position = 1; 
-    int count = 0; 
-    
-    scanf("%d %d %d", &N, &C, &S);
+    int n[3];
+    scanf("%d %d %d", &n[0], &n[1], &n[2]);
 
-    for (int i = 0; i < C; i++) {
-        int command;
-        scanf("%d", &command);
+    int pos = 1;
+    int cont = (n[2] == 1) ? 1 : 0;
 
-        if (command == 1) {
-            position = (position % N) + 1;
-        } else {
-            position = (position - 2 + N) % N + 1;
+    for (int i = 0; i < n[1]; i++) {
+        int comando;
+        scanf("%d", &comando);
+
+        pos += comando;
+
+        if (pos > n[0]) {
+            pos = 1;
+        } 
+        else if (pos < 1) {
+            pos = n[0];
         }
-
-        if (position == S) {
-            count++;
+        if (pos == n[2]) {
+            cont++;
         }
     }
-
-    printf("%d\n", count);
-
+    printf("%d\n", cont);
     return 0;
 }
