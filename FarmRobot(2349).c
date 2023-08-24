@@ -12,9 +12,9 @@ int main() {
         scanf("%d", &command);
 
         if (command == 1) {
-            position = (position % N) + 2;
+            position = (position % N) + 1;
         } else {
-            position = (position - 2 + N) % N + 2;
+            position = (position - 2 + N) % N + 1;
         }
 
         if (position == S) {
