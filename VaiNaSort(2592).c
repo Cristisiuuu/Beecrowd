@@ -1,67 +1,26 @@
-#include <stdio.h>
-#include <stdbool.h>
+#include<stdio.h>
 
-bool verificaOrd(short vet[], short cmp[], unsigned short tam);
-
-void main ()
-{
-
-	unsigned short numero, i;
-	unsigned short qtsOrd;
-	bool resultado;
-
-	while (true)
-	{	
-		scanf("%hu", &numero);
-
-		if (numero == 0)
-			break;
-
-		short caixa[numero];
-		short cmp[numero];
-
-		// Enche um vetor comparação com números que vão de 1 até n;
-		for (i = 0; i < numero; i++)
-			cmp[i] = i+1;
-
-		// Quantidade de tentativas já começa com 1
-		// Pois mesmo que na primeira tentativa já fique ordenado
-		// Gastou uma tentativa;
-		qtsOrd = 1;
-		do
-		{
-			// Enche o vetor principal com a entrada do usuário;
-			for (i = 0; i < numero; i++)
-				scanf("%hu", &caixa[i]);
-
-			// Variável resultado recebe a resposta da função que verifica a ordenação;
-			resultado = verificaOrd(caixa, cmp, numero);
-
-			// Se não estiver ordenado; 
-			// Quantidade de tentativas aumenta 1;
-			if (!resultado)
-				qtsOrd++;
-
-		} while (!resultado);
-		
-		printf("%hu\n", qtsOrd);			
-
+int main(){
+	int a,b,c[10000], fail, ans;
+	
+	do{
+		ans=1;
+		scanf("%d", &a);
+		do{
+			fail=0;
+			for(b=1;b<=a;b++){
+				scanf("%d", &c[b]);
+				if(b!=c[b] && fail==0){
+					fail=1;
+					ans++;
+				}
+			}
+		}
+		while(fail==1);
+		if(a>0){
+			printf("%d\n", ans);
+		}
 	}
-
-
-}
-
-bool verificaOrd(short vet[], short cmp[], unsigned short tam)
-{
-
-	unsigned short i;
-
-	// Se encontrar um número diferenta em posições iguais, o vetor não
-	// Está ordenado e a função retorna falso;
-	for (i = 0; i < tam; i++)
-		if (vet[i] != cmp[i])
-			return false;
-
-	return true;
-
+	while(a>0);
+	return 0;
 }
