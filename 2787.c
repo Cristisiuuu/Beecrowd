@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main (){
-	unsigned short linha, coluna;
-	scanf("%hu %hu", &linha, &coluna);
+	int linha, coluna;
+	scanf("%d %d", &linha, &coluna);
 
 	if (linha % 2 == 0 && coluna % 2 == 0)
 		printf("1\n");
